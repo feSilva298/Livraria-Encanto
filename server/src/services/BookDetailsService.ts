@@ -1,0 +1,40 @@
+import { databaseConnect } from "../database/connection";
+import { mockDb } from "../database/mockStore";
+import { USE_DATABASE } from "../config";
+import { RowDataPacket } from 'mysql2';
+import 'dotenv';
+
+interface Book {
+  id: number;
+  titulo: string;
+  descricao: string;
+  autor: string;
+  editora: string;
+  categoria: string;
+  classificacao: string;
+  paginas: number;
+  ano_pub: number;
+  preco: number;
+}
+
+class BookDetailsService {
+  async execute(id: number): Promise<Book | null> {
+    try {
+      if (!USE_DATABASE) {
+        return (await mockDb.livros.findById(id)) as Book | null;
+      }
+
+      const [rows] = await databaseConnect.query<RowDataPacket[]>(
+        `SELECT * FROM ${process.env.TABLE1} WHERE id = ?`,
+        [id]
+      );
+
+      return rows.length > 0 ? (rows[0] as Book) : null;
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  }
+}
+
+export { BookDetailsService };

@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .font-outline-2 {
+    -webkit-text-stroke: 2px black;
+  }
+  .font-outline-4 {
+    -webkit-text-stroke: 4px black;
+  }
+}
+
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("./fonts/Roboto/Roboto-Regular.ttf") format("ttf");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto-Medium";
+  src: url("./fonts/Roboto/Roboto-Medium.ttf") format("ttf");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto-Black";
+  src: url("./fonts/Roboto/Roboto-Black.ttf") format("ttf");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto-Italic";
+  src: url("./fonts/Roboto/Roboto-Italic.ttf") format("ttf");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto-Bold";
+  src: url("./fonts/Roboto/Roboto-Bold.ttf") format("ttf");
+  font-style: normal;
+  font-display: swap;
+}
