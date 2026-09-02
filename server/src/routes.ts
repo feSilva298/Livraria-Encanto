@@ -14,6 +14,7 @@ import { BookDetailsController } from "./controllers/BookDetailsController";
 import { UploadBookImageController } from "./controllers/UploadBookImageController";
 import { CartController } from "./controllers/CartController";
 import { OrderController } from "./controllers/OrderController";
+import { SearchExternalBookController } from "./controllers/SearchExternalBookController";
 
 export async function routes(fastify: FastifyInstance, options: FastifyPluginOptions) {
 
@@ -40,6 +41,10 @@ export async function routes(fastify: FastifyInstance, options: FastifyPluginOpt
 
   fastify.get("/search-books", async (req: FastifyRequest, res: FastifyReply) => {
     return new ListBookController().handleSearch(req, res);
+  });
+  
+  fastify.get("/external-books", async (req: FastifyRequest, res: FastifyReply) => {
+  return new SearchExternalBookController().handle(req, res);
   });
 
   fastify.delete("/delete-book", async (req: FastifyRequest, res: FastifyReply) => {

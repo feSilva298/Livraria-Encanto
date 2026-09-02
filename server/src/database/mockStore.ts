@@ -88,7 +88,7 @@ function seed() {
     CNPJ: '12345678000199',
     nome: 'Editora Exemplo',
     email: 'contato@editoraexemplo.com',
-    senha: '',
+    senha: '$2a$10$A7POI5lTpaGwcubKxCeJ6.xpkgAd4PPHawr.cGFFE5y0AlbSihaJm',
   });
 
   const livrosSeed: Omit<Livro, 'id' | 'imagem'>[] = [
