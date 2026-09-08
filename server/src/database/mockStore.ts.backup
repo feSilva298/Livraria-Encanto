@@ -91,11 +91,10 @@ function seed() {
     senha: '$2b$10$kpTqtNsUuIuqVaYLpjHyHOq/Hmd5VDv28diJV/jgzixQK0//7SI/m',
   });
 
-  const livrosSeed: Omit<Livro, 'id'>[] = [
+  const livrosSeed: Omit<Livro, 'id' | 'imagem'>[] = [
   // ==================== FANTASIA ====================
   {
     titulo: 'O Senhor dos Anéis',
-    imagem: 'o-senhor-dos-aneis.jpg',
     descricao: 'Uma jornada épica pela Terra Média.',
     autor: 'J.R.R. Tolkien',
     categoria: 'Fantasia',
@@ -107,7 +106,6 @@ function seed() {
   },
   {
     titulo: 'O Hobbit',
-    imagem: 'o-hobbit.jpg',
     descricao: 'Bilbo Bolseiro embarca em uma aventura inesperada pela Terra Média.',
     autor: 'J.R.R. Tolkien',
     categoria: 'Fantasia',
@@ -119,7 +117,6 @@ function seed() {
   },
   {
     titulo: 'Harry Potter e a Pedra Filosofal',
-    imagem: 'harry-potter-e-a-pedra-filosofal.jpg',
     descricao: 'Um jovem bruxo descobre seu passado e começa sua jornada em Hogwarts.',
     autor: 'J.K. Rowling',
     categoria: 'Fantasia',
@@ -131,7 +128,6 @@ function seed() {
   },
   {
     titulo: 'As Crônicas de Nárnia',
-    imagem: 'as-cronicas-de-narnia.jpg',
     descricao: 'Quatro irmãos descobrem um mundo mágico escondido além de um guarda-roupa.',
     autor: 'C.S. Lewis',
     categoria: 'Fantasia',
@@ -143,7 +139,6 @@ function seed() {
   },
   {
     titulo: 'Eragon',
-    imagem: 'eragon.jpg',
     descricao: 'Um jovem faz uma descoberta que o coloca no centro de uma antiga guerra.',
     autor: 'Christopher Paolini',
     categoria: 'Fantasia',
@@ -157,7 +152,6 @@ function seed() {
   // ==================== FICÇÃO ====================
   {
     titulo: 'Duna',
-    imagem: 'duna.jpg',
     descricao: 'Ficção científica em um planeta desértico.',
     autor: 'Frank Herbert',
     categoria: 'Ficção',
@@ -169,7 +163,6 @@ function seed() {
   },
   {
     titulo: '1984',
-    imagem: '1984.jpg',
     descricao: 'Uma sociedade controlada por um governo totalitário que vigia seus cidadãos.',
     autor: 'George Orwell',
     categoria: 'Ficção',
@@ -181,7 +174,6 @@ function seed() {
   },
   {
     titulo: 'Cem Anos de Solidão',
-    imagem: 'cem-anos-de-solidao.jpg',
     descricao: 'A história de várias gerações de uma família marcada por acontecimentos extraordinários.',
     autor: 'Gabriel García Márquez',
     categoria: 'Ficção',
@@ -193,7 +185,6 @@ function seed() {
   },
   {
     titulo: 'O Apanhador no Campo de Centeio',
-    imagem: 'o-apanhador-no-campo-de-centeio.jpg',
     descricao: 'Um adolescente enfrenta conflitos pessoais durante alguns dias de sua vida.',
     autor: 'J.D. Salinger',
     categoria: 'Ficção',
@@ -205,7 +196,6 @@ function seed() {
   },
   {
     titulo: 'A Revolução dos Bichos',
-    imagem: 'a-revolucao-dos-bichos.jpg',
     descricao: 'Uma fazenda é tomada pelos animais em uma sátira sobre poder e política.',
     autor: 'George Orwell',
     categoria: 'Ficção',
@@ -219,7 +209,6 @@ function seed() {
   // ==================== ESPORTIVO ====================
   {
     titulo: 'Fever Pitch',
-    imagem: 'fever-pitch.jpg',
     descricao: 'A obsessão de um torcedor pelo futebol inglês.',
     autor: 'Nick Hornby',
     categoria: 'Esportivo',
@@ -231,7 +220,6 @@ function seed() {
   },
   {
     titulo: 'A Arte da Corrida',
-    imagem: 'a-arte-da-corrida.jpg',
     descricao: 'Como o atletismo transforma a mente e o corpo.',
     autor: 'Matt Fitzgerald',
     categoria: 'Esportivo',
@@ -243,7 +231,6 @@ function seed() {
   },
   {
     titulo: 'Open',
-    imagem: 'open.jpg',
     descricao: 'A trajetória de um dos maiores tenistas da história dentro e fora das quadras.',
     autor: 'Andre Agassi',
     categoria: 'Esportivo',
@@ -255,7 +242,6 @@ function seed() {
   },
   {
     titulo: 'Shoe Dog',
-    imagem: 'shoe-dog.jpg',
     descricao: 'A história da criação e crescimento de uma das maiores marcas esportivas do mundo.',
     autor: 'Phil Knight',
     categoria: 'Esportivo',
@@ -267,7 +253,6 @@ function seed() {
   },
   {
     titulo: 'Pelé: A Autobiografia',
-    imagem: 'pele-a-autobiografia.jpg',
     descricao: 'A trajetória de Pelé desde sua infância até se tornar um dos maiores jogadores de futebol.',
     autor: 'Pelé',
     categoria: 'Esportivo',
@@ -281,7 +266,6 @@ function seed() {
   // ==================== MISTÉRIO ====================
   {
     titulo: 'E Não Sobrou Nenhum',
-    imagem: 'e-nao-sobrou-nenhum.jpg',
     descricao: 'Dez desconhecidos, uma ilha isolada e um assassino entre eles.',
     autor: 'Agatha Christie',
     categoria: 'Mistério',
@@ -293,7 +277,6 @@ function seed() {
   },
   {
     titulo: 'A Garota no Trem',
-    imagem: 'a-garota-no-trem.jpg',
     descricao: 'Um mistério que se desenrola através da janela de um trem.',
     autor: 'Paula Hawkins',
     categoria: 'Mistério',
@@ -305,7 +288,6 @@ function seed() {
   },
   {
     titulo: 'O Assassinato de Roger Ackroyd',
-    imagem: 'o-assassinato-de-roger-ackroyd.jpg',
     descricao: 'Hercule Poirot investiga um assassinato cercado de suspeitos e segredos.',
     autor: 'Agatha Christie',
     categoria: 'Mistério',
@@ -317,7 +299,6 @@ function seed() {
   },
   {
     titulo: 'Morte no Nilo',
-    imagem: 'morte-no-nilo.jpg',
     descricao: 'Uma viagem de luxo pelo Egito se transforma em uma investigação de assassinato.',
     autor: 'Agatha Christie',
     categoria: 'Mistério',
@@ -329,7 +310,6 @@ function seed() {
   },
   {
     titulo: 'O Código Da Vinci',
-    imagem: 'o-codigo-da-vinci.jpg',
     descricao: 'Um professor de simbologia se envolve em uma investigação cheia de enigmas e conspirações.',
     autor: 'Dan Brown',
     categoria: 'Mistério',
@@ -343,7 +323,6 @@ function seed() {
   // ==================== INFANTIL ====================
   {
     titulo: 'O Pequeno Príncipe',
-    imagem: 'o-pequeno-principe.jpg',
     descricao: 'Um piloto perdido no deserto encontra um pequeno príncipe de outro planeta.',
     autor: 'Antoine de Saint-Exupéry',
     categoria: 'Infantil',
@@ -355,7 +334,6 @@ function seed() {
   },
   {
     titulo: 'Onde Vivem os Monstros',
-    imagem: 'onde-vivem-os-monstros.jpg',
     descricao: 'Max embarca em uma viagem imaginária até a terra dos monstros.',
     autor: 'Maurice Sendak',
     categoria: 'Infantil',
@@ -367,7 +345,6 @@ function seed() {
   },
   {
     titulo: 'Matilda',
-    imagem: 'matilda.jpg',
     descricao: 'Uma menina extremamente inteligente descobre que possui poderes especiais.',
     autor: 'Roald Dahl',
     categoria: 'Infantil',
@@ -379,7 +356,6 @@ function seed() {
   },
   {
     titulo: 'Charlie e a Fábrica de Chocolate',
-    imagem: 'charlie-e-a-fabrica-de-chocolate.jpg',
     descricao: 'Charlie recebe uma oportunidade incrível de conhecer uma misteriosa fábrica de chocolates.',
     autor: 'Roald Dahl',
     categoria: 'Infantil',
@@ -391,7 +367,6 @@ function seed() {
   },
   {
     titulo: 'Alice no País das Maravilhas',
-    imagem: 'alice-no-pais-das-maravilhas.jpg',
     descricao: 'Alice cai em um mundo fantástico repleto de personagens curiosos e situações inesperadas.',
     autor: 'Lewis Carroll',
     categoria: 'Infantil',
@@ -405,7 +380,6 @@ function seed() {
   // ==================== FICÇÃO CIENTÍFICA ====================
   {
     titulo: 'Fundação',
-    imagem: 'fundacao.jpg',
     descricao: 'Um matemático prevê a queda de um império galáctico e tenta preservar o conhecimento da humanidade.',
     autor: 'Isaac Asimov',
     categoria: 'Ficção Científica',
@@ -417,7 +391,6 @@ function seed() {
   },
   {
     titulo: 'Eu, Robô',
-    imagem: 'eu-robo.jpg',
     descricao: 'Uma coleção de histórias sobre robôs e sua relação com os seres humanos.',
     autor: 'Isaac Asimov',
     categoria: 'Ficção Científica',
@@ -429,7 +402,6 @@ function seed() {
   },
   {
     titulo: 'Admirável Mundo Novo',
-    imagem: 'admiravel-mundo-novo.jpg',
     descricao: 'Uma sociedade futurista organizada através de tecnologia, controle social e condicionamento.',
     autor: 'Aldous Huxley',
     categoria: 'Ficção Científica',
@@ -441,7 +413,6 @@ function seed() {
   },
   {
     titulo: 'Solaris',
-    imagem: 'solaris.jpg',
     descricao: 'Um cientista investiga um planeta misterioso capaz de materializar pensamentos e memórias.',
     autor: 'Stanisław Lem',
     categoria: 'Ficção Científica',
@@ -453,7 +424,6 @@ function seed() {
   },
   {
     titulo: 'O Guia do Mochileiro das Galáxias',
-    imagem: 'o-guia-do-mochileiro-das-galaxias.jpg',
     descricao: 'Um homem embarca em uma aventura espacial completamente inesperada.',
     autor: 'Douglas Adams',
     categoria: 'Ficção Científica',
@@ -467,7 +437,6 @@ function seed() {
   // ==================== ROMANCE ====================
   {
     titulo: 'Orgulho e Preconceito',
-    imagem: 'orgulho-e-preconceito.jpg',
     descricao: 'Elizabeth Bennet enfrenta questões de amor, sociedade e preconceito na Inglaterra do século XIX.',
     autor: 'Jane Austen',
     categoria: 'Romance',
@@ -479,7 +448,6 @@ function seed() {
   },
   {
     titulo: 'Como Eu Era Antes de Você',
-    imagem: 'como-eu-era-antes-de-voce.jpg',
     descricao: 'Uma jovem começa a trabalhar como cuidadora e transforma completamente sua vida.',
     autor: 'Jojo Moyes',
     categoria: 'Romance',
@@ -491,7 +459,6 @@ function seed() {
   },
   {
     titulo: 'A Culpa é das Estrelas',
-    imagem: 'a-culpa-e-das-estrelas.jpg',
     descricao: 'Dois jovens se conhecem e constroem uma relação marcada por amor e desafios.',
     autor: 'John Green',
     categoria: 'Romance',
@@ -503,7 +470,6 @@ function seed() {
   },
   {
     titulo: 'O Morro dos Ventos Uivantes',
-    imagem: 'o-morro-dos-ventos-uivantes.jpg',
     descricao: 'Uma história intensa de amor, vingança e conflitos familiares.',
     autor: 'Emily Brontë',
     categoria: 'Romance',
@@ -515,7 +481,6 @@ function seed() {
   },
   {
     titulo: 'Jane Eyre',
-    imagem: 'jane-eyre.jpg',
     descricao: 'Uma jovem enfrenta dificuldades e encontra seu caminho entre amor, independência e mistérios.',
     autor: 'Charlotte Brontë',
     categoria: 'Romance',
@@ -529,7 +494,6 @@ function seed() {
   // ==================== BIOGRAFIAS ====================
   {
     titulo: 'Steve Jobs',
-    imagem: 'steve-jobs.jpg',
     descricao: 'A vida e a trajetória profissional de um dos grandes nomes da tecnologia.',
     autor: 'Walter Isaacson',
     categoria: 'Biografias',
@@ -541,7 +505,6 @@ function seed() {
   },
   {
     titulo: 'Longa Caminhada até a Liberdade',
-    imagem: 'longa-caminhada-ate-a-liberdade.jpg',
     descricao: 'A autobiografia de Nelson Mandela e sua trajetória na luta contra o apartheid.',
     autor: 'Nelson Mandela',
     categoria: 'Biografias',
@@ -553,7 +516,6 @@ function seed() {
   },
   {
     titulo: 'Einstein: Sua Vida, Seu Universo',
-    imagem: 'einstein-sua-vida-seu-universo.jpg',
     descricao: 'A vida pessoal e científica de Albert Einstein.',
     autor: 'Walter Isaacson',
     categoria: 'Biografias',
@@ -565,7 +527,6 @@ function seed() {
   },
   {
     titulo: 'A Autobiografia de Malcolm X',
-    imagem: 'a-autobiografia-de-malcolm-x.jpg',
     descricao: 'A trajetória de Malcolm X e sua transformação ao longo da vida.',
     autor: 'Malcolm X',
     categoria: 'Biografias',
@@ -577,7 +538,6 @@ function seed() {
   },
   {
     titulo: 'Churchill: Uma Vida',
-    imagem: 'churchill-uma-vida.jpg',
     descricao: 'A vida e a carreira política de Winston Churchill.',
     autor: 'Martin Gilbert',
     categoria: 'Biografias',
@@ -591,7 +551,6 @@ function seed() {
   // ==================== AUTOAJUDA ====================
   {
     titulo: 'Como Fazer Amigos e Influenciar Pessoas',
-    imagem: 'como-fazer-amigos-e-influenciar-pessoas.jpg',
     descricao: 'Princípios para melhorar relacionamentos e comunicação com outras pessoas.',
     autor: 'Dale Carnegie',
     categoria: 'Autoajuda',
@@ -603,7 +562,6 @@ function seed() {
   },
   {
     titulo: 'Hábitos Atômicos',
-    imagem: 'habitos-atomicos.jpg',
     descricao: 'Estratégias práticas para construir bons hábitos e abandonar hábitos ruins.',
     autor: 'James Clear',
     categoria: 'Autoajuda',
@@ -615,7 +573,6 @@ function seed() {
   },
   {
     titulo: 'O Poder do Hábito',
-    imagem: 'o-poder-do-habito.jpg',
     descricao: 'Uma análise sobre como os hábitos funcionam e como podem ser transformados.',
     autor: 'Charles Duhigg',
     categoria: 'Autoajuda',
@@ -627,7 +584,6 @@ function seed() {
   },
   {
     titulo: 'Essencialismo',
-    imagem: 'essencialismo.jpg',
     descricao: 'Uma abordagem para eliminar o que não é essencial e concentrar esforços no que realmente importa.',
     autor: 'Greg McKeown',
     categoria: 'Autoajuda',
@@ -639,7 +595,6 @@ function seed() {
   },
   {
     titulo: 'Mindset',
-    imagem: 'mindset.jpg',
     descricao: 'Uma reflexão sobre como diferentes formas de pensar influenciam aprendizado e desenvolvimento.',
     autor: 'Carol S. Dweck',
     categoria: 'Autoajuda',
@@ -652,7 +607,7 @@ function seed() {
 ];
 
   for (const livro of livrosSeed) {
-    livros.push({ id: nextIds.livro++, ...livro });
+    livros.push({ id: nextIds.livro++, imagem: null, ...livro });
   }
 }
 seed();
