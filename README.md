@@ -1,6 +1,7 @@
 # Livraria Encanto
 
 E-commerce de livros full-stack: catálogo, autenticação de usuários e editoras, carrinho e pedidos.
+Nomes dos alunos: Felipe, Renan e Douglas 
 
 ## Sumário
 
@@ -160,3 +161,18 @@ Base: `http://localhost:3333`. Rotas marcadas em **Auth** exigem `Authorization:
 |---|---|---|
 | `GET` | `/setup` | Checagem simples de que a API está no ar |
 | `GET` | `/uploads/:arquivo` | Serve as capas enviadas como estático |
+
+## Requisitos do Sistema
+
+### Requisitos Funcionais
+* **Autenticação:** O usuário (cliente ou editora) deve conseguir criar uma conta, fazer login de forma segura e gerenciar seus dados de perfil.
+* **Catálogo e Busca:** O sistema deve permitir buscar livros por nome, autor ou categoria, além de consultar a API externa da Open Library para auxiliar no cadastro.
+* **Carrinho de Compras:** O cliente deve conseguir adicionar itens, alterar a quantidade ou remover produtos do carrinho.
+* **Pedidos e Checkout:** O usuário deve conseguir finalizar a compra a partir dos itens do carrinho e visualizar o histórico detalhado de seus pedidos anteriores.
+* **Painel da Editora:** A editora autenticada deve conseguir cadastrar novos livros, enviar imagens de capa via upload (multipart) e gerenciar seu catálogo.
+
+### Requisitos Não Funcionais
+* **Desempenho:** O site deve otimizar o carregamento das páginas principais para garantir uma experiência fluida (meta inferior a 3 segundos).
+* **Disponibilidade:** A arquitetura do sistema deve buscar alta estabilidade e manutenibilidade através da separação estrita entre cliente, API REST e base de dados.
+* **Segurança e Privacidade:** O armazenamento de senhas deve utilizar criptografia robusta (`bcryptjs`), e o acesso às rotas protegidas deve ser validado via tokens JWT. Os dados sensíveis de pagamento e autenticação devem seguir padrões rígidos de conformidade (LGPD e PCI-DSS).
+* **Portabilidade e Testes:** O projeto suporta flexibilidade de infraestrutura através de um interruptor de configuração (`USE_DATABASE`), permitindo alternar facilmente entre um banco MySQL em produção e um mock em memória para testes rápidos.
