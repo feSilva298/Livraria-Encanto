@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { api } from "../service/api";
 import Header from "../components/HeaderGeneral";
@@ -97,6 +96,7 @@ function HomePage() {
   function handleKidsBooks() {
     navigate(`/search?query=infantil`);
   }
+
   function handleScienceFictionBooks() {
     navigate(`/search?query=ficção científica`);
   }
@@ -114,22 +114,28 @@ function HomePage() {
   }
 
   return (
-    <div className="w-full min-h-screen bg-stone-300 md:max-2xl">
+    <div className="w-full min-h-screen bg-stone-300 overflow-x-hidden">
       <Header />
 
-      <div className="flex justify-center items-center">
+      {/* BANNER */}
+      <div className="flex justify-center items-center px-4 sm:px-6">
         <section
           className="
-            w-11/12
-            h-72
-            border-3
-            my-10
+            w-full
+            max-w-7xl
+            h-40
+            sm:h-56
+            md:h-72
+            border-2
+            my-6
+            sm:my-8
+            md:my-10
             bg-[url('/2_20240911_155529_0001~2.png')]
             bg-no-repeat
             bg-cover
+            bg-center
             border-slate-400
             shadow-lg
-            border-2
             flex
             justify-center
             items-center
@@ -144,9 +150,13 @@ function HomePage() {
           className="
             font-roboto-italic
             italic
-            text-2xl
-            mx-14
-            w-[23rem]
+            text-xl
+            sm:text-2xl
+            mx-4
+            sm:mx-8
+            md:mx-14
+            w-fit
+            max-w-[calc(100%-2rem)]
             h-auto
             border-b-indigo-600
             border-r-transparent
@@ -158,20 +168,27 @@ function HomePage() {
           RECOMENDADOS PARA VOCÊ
         </h1>
 
-        <div className="flex justify-center items-center py-10">
+        <div className="flex justify-center items-center py-6 sm:py-8 md:py-10 px-4">
           <section
             className="
-              w-11/12
-              h-72
+              w-full
+              max-w-7xl
+              h-64
+              sm:h-72
               flex
               flex-row
-              space-x-10
+              gap-4
+              sm:gap-6
+              md:gap-10
               py-2
               px-2
               rounded-xl
               bg-gradient-to-t
               from-slate-200
               to-slate-300
+              overflow-x-auto
+              overflow-y-hidden
+              scrollbar-thin
             "
           >
             {displayedItems.map((book) => (
@@ -179,7 +196,10 @@ function HomePage() {
                 key={book.id}
                 className="
                   h-full
-                  w-56
+                  w-40
+                  sm:w-48
+                  md:w-56
+                  flex-shrink-0
                   rounded-xl
                   overflow-hidden
                   relative
@@ -213,25 +233,23 @@ function HomePage() {
                     flex
                     flex-col
                     justify-end
-                    p-5
+                    p-3
+                    sm:p-4
+                    md:p-5
                     text-white
                   "
                 >
-                  <h2 className="font-bold text-lg mb-2">
+                  <h2 className="font-bold text-sm sm:text-base md:text-lg mb-2">
                     {book.titulo}
                   </h2>
 
-                  <p className="text-sm mb-1">
-                    <span className="font-semibold">
-                      Autor:
-                    </span>{" "}
+                  <p className="text-xs sm:text-sm mb-1">
+                    <span className="font-semibold">Autor:</span>{" "}
                     {book.autor}
                   </p>
 
-                  <p className="text-sm">
-                    <span className="font-semibold">
-                      Editora:
-                    </span>{" "}
+                  <p className="text-xs sm:text-sm">
+                    <span className="font-semibold">Editora:</span>{" "}
                     {book.editora}
                   </p>
                 </div>
@@ -240,14 +258,19 @@ function HomePage() {
           </section>
         </div>
 
+
         {/* ESPORTIVOS */}
         <h1
           className="
             font-roboto-italic
             italic
-            text-2xl
-            mx-14
-            w-[23rem]
+            text-xl
+            sm:text-2xl
+            mx-4
+            sm:mx-8
+            md:mx-14
+            w-fit
+            max-w-[calc(100%-2rem)]
             h-auto
             border-b-indigo-600
             border-r-transparent
@@ -259,20 +282,27 @@ function HomePage() {
           LIVROS ESPORTIVOS
         </h1>
 
-        <div className="flex justify-center items-center py-10">
+        <div className="flex justify-center items-center py-6 sm:py-8 md:py-10 px-4">
           <section
             className="
-              w-11/12
-              h-72
+              w-full
+              max-w-7xl
+              h-64
+              sm:h-72
               flex
               flex-row
-              space-x-10
+              gap-4
+              sm:gap-6
+              md:gap-10
               py-2
               px-2
               rounded-xl
               bg-gradient-to-t
               from-slate-200
               to-slate-300
+              overflow-x-auto
+              overflow-y-hidden
+              scrollbar-thin
             "
           >
             {sportsBooks.slice(0, 4).map((book) => (
@@ -280,7 +310,10 @@ function HomePage() {
                 key={book.id}
                 className="
                   h-full
-                  w-56
+                  w-40
+                  sm:w-48
+                  md:w-56
+                  flex-shrink-0
                   rounded-xl
                   overflow-hidden
                   relative
@@ -298,7 +331,7 @@ function HomePage() {
                   <img
                     src={`${apiUrl}/uploads/${book.imagem}`}
                     alt={book.titulo}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain scale-90"
                   />
                 )}
 
@@ -314,25 +347,23 @@ function HomePage() {
                     flex
                     flex-col
                     justify-end
-                    p-5
+                    p-3
+                    sm:p-4
+                    md:p-5
                     text-white
                   "
                 >
-                  <h2 className="font-bold text-lg mb-2">
+                  <h2 className="font-bold text-sm sm:text-base md:text-lg mb-2">
                     {book.titulo}
                   </h2>
 
-                  <p className="text-sm mb-1">
-                    <span className="font-semibold">
-                      Autor:
-                    </span>{" "}
+                  <p className="text-xs sm:text-sm mb-1">
+                    <span className="font-semibold">Autor:</span>{" "}
                     {book.autor}
                   </p>
 
-                  <p className="text-sm">
-                    <span className="font-semibold">
-                      Editora:
-                    </span>{" "}
+                  <p className="text-xs sm:text-sm">
+                    <span className="font-semibold">Editora:</span>{" "}
                     {book.editora}
                   </p>
                 </div>
@@ -341,11 +372,12 @@ function HomePage() {
           </section>
         </div>
 
-        <div className="flex justify-center mb-10">
+        <div className="flex justify-center mb-8 sm:mb-10 px-4">
           <button
             onClick={handleSportsBooks}
             className="
-              px-6
+              px-5
+              sm:px-6
               py-2
               rounded-lg
               bg-indigo-600
@@ -353,20 +385,27 @@ function HomePage() {
               font-semibold
               hover:bg-indigo-700
               transition
+              text-sm
+              sm:text-base
             "
           >
             Ver livros esportivos
           </button>
         </div>
 
+
         {/* MISTÉRIO */}
         <h1
           className="
             font-roboto-italic
             italic
-            text-2xl
-            mx-14
-            w-[23rem]
+            text-xl
+            sm:text-2xl
+            mx-4
+            sm:mx-8
+            md:mx-14
+            w-fit
+            max-w-[calc(100%-2rem)]
             h-auto
             border-b-indigo-600
             border-r-transparent
@@ -378,20 +417,27 @@ function HomePage() {
           LIVROS DE MISTÉRIO
         </h1>
 
-        <div className="flex justify-center items-center py-10">
+        <div className="flex justify-center items-center py-6 sm:py-8 md:py-10 px-4">
           <section
             className="
-              w-11/12
-              h-72
+              w-full
+              max-w-7xl
+              h-64
+              sm:h-72
               flex
               flex-row
-              space-x-10
+              gap-4
+              sm:gap-6
+              md:gap-10
               py-2
               px-2
               rounded-xl
               bg-gradient-to-t
               from-slate-200
               to-slate-300
+              overflow-x-auto
+              overflow-y-hidden
+              scrollbar-thin
             "
           >
             {mysteryBooks.slice(0, 4).map((book) => (
@@ -399,7 +445,10 @@ function HomePage() {
                 key={book.id}
                 className="
                   h-full
-                  w-56
+                  w-40
+                  sm:w-48
+                  md:w-56
+                  flex-shrink-0
                   rounded-xl
                   overflow-hidden
                   relative
@@ -417,7 +466,7 @@ function HomePage() {
                   <img
                     src={`${apiUrl}/uploads/${book.imagem}`}
                     alt={book.titulo}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain scale-90"
                   />
                 )}
 
@@ -433,25 +482,23 @@ function HomePage() {
                     flex
                     flex-col
                     justify-end
-                    p-5
+                    p-3
+                    sm:p-4
+                    md:p-5
                     text-white
                   "
                 >
-                  <h2 className="font-bold text-lg mb-2">
+                  <h2 className="font-bold text-sm sm:text-base md:text-lg mb-2">
                     {book.titulo}
                   </h2>
 
-                  <p className="text-sm mb-1">
-                    <span className="font-semibold">
-                      Autor:
-                    </span>{" "}
+                  <p className="text-xs sm:text-sm mb-1">
+                    <span className="font-semibold">Autor:</span>{" "}
                     {book.autor}
                   </p>
 
-                  <p className="text-sm">
-                    <span className="font-semibold">
-                      Editora:
-                    </span>{" "}
+                  <p className="text-xs sm:text-sm">
+                    <span className="font-semibold">Editora:</span>{" "}
                     {book.editora}
                   </p>
                 </div>
@@ -460,11 +507,12 @@ function HomePage() {
           </section>
         </div>
 
-        <div className="flex justify-center mb-10">
+        <div className="flex justify-center mb-8 sm:mb-10 px-4">
           <button
             onClick={handleMysteryBooks}
             className="
-              px-6
+              px-5
+              sm:px-6
               py-2
               rounded-lg
               bg-indigo-600
@@ -472,20 +520,27 @@ function HomePage() {
               font-semibold
               hover:bg-indigo-700
               transition
+              text-sm
+              sm:text-base
             "
           >
             Ver livros de mistério
           </button>
         </div>
 
+
         {/* INFANTIL */}
         <h1
           className="
             font-roboto-italic
             italic
-            text-2xl
-            mx-14
-            w-[23rem]
+            text-xl
+            sm:text-2xl
+            mx-4
+            sm:mx-8
+            md:mx-14
+            w-fit
+            max-w-[calc(100%-2rem)]
             h-auto
             border-b-indigo-600
             border-r-transparent
@@ -497,20 +552,27 @@ function HomePage() {
           LIVROS INFANTIS
         </h1>
 
-        <div className="flex justify-center items-center py-10">
+        <div className="flex justify-center items-center py-6 sm:py-8 md:py-10 px-4">
           <section
             className="
-              w-11/12
-              h-72
+              w-full
+              max-w-7xl
+              h-64
+              sm:h-72
               flex
               flex-row
-              space-x-10
+              gap-4
+              sm:gap-6
+              md:gap-10
               py-2
               px-2
               rounded-xl
               bg-gradient-to-t
               from-slate-200
               to-slate-300
+              overflow-x-auto
+              overflow-y-hidden
+              scrollbar-thin
             "
           >
             {kidsBooks.slice(0, 4).map((book) => (
@@ -518,7 +580,10 @@ function HomePage() {
                 key={book.id}
                 className="
                   h-full
-                  w-56
+                  w-40
+                  sm:w-48
+                  md:w-56
+                  flex-shrink-0
                   rounded-xl
                   overflow-hidden
                   relative
@@ -536,7 +601,7 @@ function HomePage() {
                   <img
                     src={`${apiUrl}/uploads/${book.imagem}`}
                     alt={book.titulo}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain scale-90"
                   />
                 )}
 
@@ -552,25 +617,23 @@ function HomePage() {
                     flex
                     flex-col
                     justify-end
-                    p-5
+                    p-3
+                    sm:p-4
+                    md:p-5
                     text-white
                   "
                 >
-                  <h2 className="font-bold text-lg mb-2">
+                  <h2 className="font-bold text-sm sm:text-base md:text-lg mb-2">
                     {book.titulo}
                   </h2>
 
-                  <p className="text-sm mb-1">
-                    <span className="font-semibold">
-                      Autor:
-                    </span>{" "}
+                  <p className="text-xs sm:text-sm mb-1">
+                    <span className="font-semibold">Autor:</span>{" "}
                     {book.autor}
                   </p>
 
-                  <p className="text-sm">
-                    <span className="font-semibold">
-                      Editora:
-                    </span>{" "}
+                  <p className="text-xs sm:text-sm">
+                    <span className="font-semibold">Editora:</span>{" "}
                     {book.editora}
                   </p>
                 </div>
@@ -579,11 +642,12 @@ function HomePage() {
           </section>
         </div>
 
-        <div className="flex justify-center mb-10">
+        <div className="flex justify-center mb-8 sm:mb-10 px-4">
           <button
             onClick={handleKidsBooks}
             className="
-              px-6
+              px-5
+              sm:px-6
               py-2
               rounded-lg
               bg-indigo-600
@@ -591,280 +655,555 @@ function HomePage() {
               font-semibold
               hover:bg-indigo-700
               transition
+              text-sm
+              sm:text-base
             "
           >
             Ver livros infantis
           </button>
         </div>
 
-      </div>
 
-      {/* FICÇÃO CIENTÍFICA */}
-<h1 
-  className="
-    font-roboto-italic 
-    italic 
-    text-2xl 
-    mx-14 
-    w-[23rem] 
-    h-auto 
-    border-b-indigo-600 
-    border-r-transparent 
-    border-t-transparent 
-    border-l-transparent 
-    border-2 
-  "
->
-  FICÇÃO CIENTÍFICA
-</h1>
-
-<div className="flex justify-center items-center py-10">
-  <section 
-    className="
-      w-11/12 
-      h-72 
-      flex 
-      flex-row 
-      space-x-10 
-      py-2 
-      px-2 
-      rounded-xl 
-      bg-gradient-to-t 
-      from-slate-200 
-      to-slate-300 
-    "
-  >
-    {scienceFictionBooks.slice(0, 4).map((book) => (
-      <article 
-        key={book.id} 
-        className="
-          h-full 
-          w-56 
-          rounded-xl 
-          overflow-hidden 
-          relative 
-          shadow-xl 
-          shadow-indigo-300 
-          hover:scale-105 
-          duration-200 
-          cursor-pointer 
-          group 
-          bg-white 
-        "
-        onClick={() => handleBookClick(book.id)}
-      >
-        {book.imagem && (
-          <img 
-            src={`${apiUrl}/uploads/${book.imagem}`} 
-            alt={book.titulo} 
-            className="w-full h-full object-cover" 
-          />
-        )}
-
-        <div 
+        {/* FICÇÃO CIENTÍFICA */}
+        <h1
           className="
-            absolute 
-            inset-0 
-            bg-black/70 
-            opacity-0 
-            group-hover:opacity-100 
-            transition-opacity 
-            duration-200 
-            flex 
-            flex-col 
-            justify-end 
-            p-5 
-            text-white 
+            font-roboto-italic
+            italic
+            text-xl
+            sm:text-2xl
+            mx-4
+            sm:mx-8
+            md:mx-14
+            w-fit
+            max-w-[calc(100%-2rem)]
+            h-auto
+            border-b-indigo-600
+            border-r-transparent
+            border-t-transparent
+            border-l-transparent
+            border-2
           "
         >
-          <h2 className="font-bold text-lg mb-2">
-            {book.titulo}
-          </h2>
+          FICÇÃO CIENTÍFICA
+        </h1>
 
-          <p className="text-sm mb-1">
-            <span className="font-semibold">Autor:</span>{" "}
-            {book.autor}
-          </p>
+        <div className="flex justify-center items-center py-6 sm:py-8 md:py-10 px-4">
+          <section
+            className="
+              w-full
+              max-w-7xl
+              h-64
+              sm:h-72
+              flex
+              flex-row
+              gap-4
+              sm:gap-6
+              md:gap-10
+              py-2
+              px-2
+              rounded-xl
+              bg-gradient-to-t
+              from-slate-200
+              to-slate-300
+              overflow-x-auto
+              overflow-y-hidden
+              scrollbar-thin
+            "
+          >
+            {scienceFictionBooks.slice(0, 4).map((book) => (
+              <article
+                key={book.id}
+                className="
+                  h-full
+                  w-40
+                  sm:w-48
+                  md:w-56
+                  flex-shrink-0
+                  rounded-xl
+                  overflow-hidden
+                  relative
+                  shadow-xl
+                  shadow-indigo-300
+                  hover:scale-105
+                  duration-200
+                  cursor-pointer
+                  group
+                  bg-white
+                "
+                onClick={() => handleBookClick(book.id)}
+              >
+                {book.imagem && (
+                  <img
+                    src={`${apiUrl}/uploads/${book.imagem}`}
+                    alt={book.titulo}
+                    className="w-full h-full object-contain scale-90"
+                  />
+                )}
 
-          <p className="text-sm">
-            <span className="font-semibold">Editora:</span>{" "}
-            {book.editora}
-          </p>
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    bg-black/70
+                    opacity-0
+                    group-hover:opacity-100
+                    transition-opacity
+                    duration-200
+                    flex
+                    flex-col
+                    justify-end
+                    p-3
+                    sm:p-4
+                    md:p-5
+                    text-white
+                  "
+                >
+                  <h2 className="font-bold text-sm sm:text-base md:text-lg mb-2">
+                    {book.titulo}
+                  </h2>
+
+                  <p className="text-xs sm:text-sm mb-1">
+                    <span className="font-semibold">Autor:</span>{" "}
+                    {book.autor}
+                  </p>
+
+                  <p className="text-xs sm:text-sm">
+                    <span className="font-semibold">Editora:</span>{" "}
+                    {book.editora}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </section>
         </div>
-      </article>
-    ))}
-  </section>
-</div>
 
-<div className="flex justify-center mb-10">
-  <button 
-    onClick={handleScienceFictionBooks}
-    className="
-      px-6 
-      py-2 
-      rounded-lg 
-      bg-indigo-600 
-      text-white 
-      font-semibold 
-      hover:bg-indigo-700 
-      transition 
-    "
-  >
-    Ver livros de ficção científica
-  </button>
-</div>
-
-{/* ROMANCE */}
-<h1 className="font-roboto-italic italic text-2xl mx-14 w-[23rem] h-auto border-b-indigo-600 border-r-transparent border-t-transparent border-l-transparent border-2">
-  LIVROS DE ROMANCE
-</h1>
-
-<div className="flex justify-center items-center py-10">
-  <section className="w-11/12 h-72 flex flex-row space-x-10 py-2 px-2 rounded-xl bg-gradient-to-t from-slate-200 to-slate-300">
-    {romanceBooks.slice(0, 4).map((book) => (
-      <article
-        key={book.id}
-        className="h-full w-56 rounded-xl overflow-hidden relative shadow-xl shadow-indigo-300 hover:scale-105 duration-200 cursor-pointer group bg-white"
-        onClick={() => handleBookClick(book.id)}
-      >
-        {book.imagem && (
-          <img
-            src={`${apiUrl}/uploads/${book.imagem}`}
-            alt={book.titulo}
-            className="w-full h-full object-cover"
-          />
-        )}
-
-        <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex flex-col justify-end p-5 text-white">
-          <h2 className="font-bold text-lg mb-2">
-            {book.titulo}
-          </h2>
-
-          <p className="text-sm mb-1">
-            <span className="font-semibold">Autor:</span>{" "}
-            {book.autor}
-          </p>
-
-          <p className="text-sm">
-            <span className="font-semibold">Editora:</span>{" "}
-            {book.editora}
-          </p>
+        <div className="flex justify-center mb-8 sm:mb-10 px-4">
+          <button
+            onClick={handleScienceFictionBooks}
+            className="
+              px-5
+              sm:px-6
+              py-2
+              rounded-lg
+              bg-indigo-600
+              text-white
+              font-semibold
+              hover:bg-indigo-700
+              transition
+              text-sm
+              sm:text-base
+            "
+          >
+            Ver livros de ficção científica
+          </button>
         </div>
-      </article>
-    ))}
-  </section>
-</div>
 
-<div className="flex justify-center mb-10">
-  <button
-    onClick={handleRomanceBooks}
-    className="px-6 py-2 rounded-lg bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition"
-  >
-    Ver livros de romance
-  </button>
-</div>
 
-{/* BIOGRAFIAS */}
-<h1 className="font-roboto-italic italic text-2xl mx-14 w-[23rem] h-auto border-b-indigo-600 border-r-transparent border-t-transparent border-l-transparent border-2">
-  BIOGRAFIAS
-</h1>
+        {/* ROMANCE */}
+        <h1
+          className="
+            font-roboto-italic
+            italic
+            text-xl
+            sm:text-2xl
+            mx-4
+            sm:mx-8
+            md:mx-14
+            w-fit
+            max-w-[calc(100%-2rem)]
+            h-auto
+            border-b-indigo-600
+            border-r-transparent
+            border-t-transparent
+            border-l-transparent
+            border-2
+          "
+        >
+          LIVROS DE ROMANCE
+        </h1>
 
-<div className="flex justify-center items-center py-10">
-  <section className="w-11/12 h-72 flex flex-row space-x-10 py-2 px-2 rounded-xl bg-gradient-to-t from-slate-200 to-slate-300">
-    {biographyBooks.slice(0, 4).map((book) => (
-      <article
-        key={book.id}
-        className="h-full w-56 rounded-xl overflow-hidden relative shadow-xl shadow-indigo-300 hover:scale-105 duration-200 cursor-pointer group bg-white"
-        onClick={() => handleBookClick(book.id)}
-      >
-        {book.imagem && (
-          <img
-            src={`${apiUrl}/uploads/${book.imagem}`}
-            alt={book.titulo}
-            className="w-full h-full object-cover"
-          />
-        )}
+        <div className="flex justify-center items-center py-6 sm:py-8 md:py-10 px-4">
+          <section
+            className="
+              w-full
+              max-w-7xl
+              h-64
+              sm:h-72
+              flex
+              flex-row
+              gap-4
+              sm:gap-6
+              md:gap-10
+              py-2
+              px-2
+              rounded-xl
+              bg-gradient-to-t
+              from-slate-200
+              to-slate-300
+              overflow-x-auto
+              overflow-y-hidden
+              scrollbar-thin
+            "
+          >
+            {romanceBooks.slice(0, 4).map((book) => (
+              <article
+                key={book.id}
+                className="
+                  h-full
+                  w-40
+                  sm:w-48
+                  md:w-56
+                  flex-shrink-0
+                  rounded-xl
+                  overflow-hidden
+                  relative
+                  shadow-xl
+                  shadow-indigo-300
+                  hover:scale-105
+                  duration-200
+                  cursor-pointer
+                  group
+                  bg-white
+                "
+                onClick={() => handleBookClick(book.id)}
+              >
+                {book.imagem && (
+                  <img
+                    src={`${apiUrl}/uploads/${book.imagem}`}
+                    alt={book.titulo}
+                    className="w-full h-full object-contain scale-90"
+                  />
+                )}
 
-        <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex flex-col justify-end p-5 text-white">
-          <h2 className="font-bold text-lg mb-2">
-            {book.titulo}
-          </h2>
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    bg-black/70
+                    opacity-0
+                    group-hover:opacity-100
+                    transition-opacity
+                    duration-200
+                    flex
+                    flex-col
+                    justify-end
+                    p-3
+                    sm:p-4
+                    md:p-5
+                    text-white
+                  "
+                >
+                  <h2 className="font-bold text-sm sm:text-base md:text-lg mb-2">
+                    {book.titulo}
+                  </h2>
 
-          <p className="text-sm mb-1">
-            <span className="font-semibold">Autor:</span>{" "}
-            {book.autor}
-          </p>
+                  <p className="text-xs sm:text-sm mb-1">
+                    <span className="font-semibold">Autor:</span>{" "}
+                    {book.autor}
+                  </p>
 
-          <p className="text-sm">
-            <span className="font-semibold">Editora:</span>{" "}
-            {book.editora}
-          </p>
+                  <p className="text-xs sm:text-sm">
+                    <span className="font-semibold">Editora:</span>{" "}
+                    {book.editora}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </section>
         </div>
-      </article>
-    ))}
-  </section>
-</div>
 
-<div className="flex justify-center mb-10">
-  <button
-    onClick={handleBiographyBooks}
-    className="px-6 py-2 rounded-lg bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition"
-  >
-    Ver livros de biografias
-  </button>
-</div>
-
-{/* AUTOAJUDA */}
-<h1 className="font-roboto-italic italic text-2xl mx-14 w-[23rem] h-auto border-b-indigo-600 border-r-transparent border-t-transparent border-l-transparent border-2">
-  AUTOAJUDA
-</h1>
-
-<div className="flex justify-center items-center py-10">
-  <section className="w-11/12 h-72 flex flex-row space-x-10 py-2 px-2 rounded-xl bg-gradient-to-t from-slate-200 to-slate-300">
-    {selfHelpBooks.slice(0, 4).map((book) => (
-      <article
-        key={book.id}
-        className="h-full w-56 rounded-xl overflow-hidden relative shadow-xl shadow-indigo-300 hover:scale-105 duration-200 cursor-pointer group bg-white"
-        onClick={() => handleBookClick(book.id)}
-      >
-        {book.imagem && (
-          <img
-            src={`${apiUrl}/uploads/${book.imagem}`}
-            alt={book.titulo}
-            className="w-full h-full object-cover"
-          />
-        )}
-
-        <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex flex-col justify-end p-5 text-white">
-          <h2 className="font-bold text-lg mb-2">
-            {book.titulo}
-          </h2>
-
-          <p className="text-sm mb-1">
-            <span className="font-semibold">Autor:</span>{" "}
-            {book.autor}
-          </p>
-
-          <p className="text-sm">
-            <span className="font-semibold">Editora:</span>{" "}
-            {book.editora}
-          </p>
+        <div className="flex justify-center mb-8 sm:mb-10 px-4">
+          <button
+            onClick={handleRomanceBooks}
+            className="
+              px-5
+              sm:px-6
+              py-2
+              rounded-lg
+              bg-indigo-600
+              text-white
+              font-semibold
+              hover:bg-indigo-700
+              transition
+              text-sm
+              sm:text-base
+            "
+          >
+            Ver livros de romance
+          </button>
         </div>
-      </article>
-    ))}
-  </section>
-</div>
-
-<div className="flex justify-center mb-10">
-  <button
-    onClick={handleSelfHelpBooks}
-    className="px-6 py-2 rounded-lg bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition"
-  >
-    Ver livros de autoajuda
-  </button>
-</div>
 
 
+        {/* BIOGRAFIAS */}
+        <h1
+          className="
+            font-roboto-italic
+            italic
+            text-xl
+            sm:text-2xl
+            mx-4
+            sm:mx-8
+            md:mx-14
+            w-fit
+            max-w-[calc(100%-2rem)]
+            h-auto
+            border-b-indigo-600
+            border-r-transparent
+            border-t-transparent
+            border-l-transparent
+            border-2
+          "
+        >
+          BIOGRAFIAS
+        </h1>
+
+        <div className="flex justify-center items-center py-6 sm:py-8 md:py-10 px-4">
+          <section
+            className="
+              w-full
+              max-w-7xl
+              h-64
+              sm:h-72
+              flex
+              flex-row
+              gap-4
+              sm:gap-6
+              md:gap-10
+              py-2
+              px-2
+              rounded-xl
+              bg-gradient-to-t
+              from-slate-200
+              to-slate-300
+              overflow-x-auto
+              overflow-y-hidden
+              scrollbar-thin
+            "
+          >
+            {biographyBooks.slice(0, 4).map((book) => (
+              <article
+                key={book.id}
+                className="
+                  h-full
+                  w-40
+                  sm:w-48
+                  md:w-56
+                  flex-shrink-0
+                  rounded-xl
+                  overflow-hidden
+                  relative
+                  shadow-xl
+                  shadow-indigo-300
+                  hover:scale-105
+                  duration-200
+                  cursor-pointer
+                  group
+                  bg-white
+                "
+                onClick={() => handleBookClick(book.id)}
+              >
+                {book.imagem && (
+                  <img
+                    src={`${apiUrl}/uploads/${book.imagem}`}
+                    alt={book.titulo}
+                    className="w-full h-full object-contain scale-90"
+                  />
+                )}
+
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    bg-black/70
+                    opacity-0
+                    group-hover:opacity-100
+                    transition-opacity
+                    duration-200
+                    flex
+                    flex-col
+                    justify-end
+                    p-3
+                    sm:p-4
+                    md:p-5
+                    text-white
+                  "
+                >
+                  <h2 className="font-bold text-sm sm:text-base md:text-lg mb-2">
+                    {book.titulo}
+                  </h2>
+
+                  <p className="text-xs sm:text-sm mb-1">
+                    <span className="font-semibold">Autor:</span>{" "}
+                    {book.autor}
+                  </p>
+
+                  <p className="text-xs sm:text-sm">
+                    <span className="font-semibold">Editora:</span>{" "}
+                    {book.editora}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </section>
+        </div>
+
+        <div className="flex justify-center mb-8 sm:mb-10 px-4">
+          <button
+            onClick={handleBiographyBooks}
+            className="
+              px-5
+              sm:px-6
+              py-2
+              rounded-lg
+              bg-indigo-600
+              text-white
+              font-semibold
+              hover:bg-indigo-700
+              transition
+              text-sm
+              sm:text-base
+            "
+          >
+            Ver livros de biografias
+          </button>
+        </div>
+
+
+        {/* AUTOAJUDA */}
+        <h1
+          className="
+            font-roboto-italic
+            italic
+            text-xl
+            sm:text-2xl
+            mx-4
+            sm:mx-8
+            md:mx-14
+            w-fit
+            max-w-[calc(100%-2rem)]
+            h-auto
+            border-b-indigo-600
+            border-r-transparent
+            border-t-transparent
+            border-l-transparent
+            border-2
+          "
+        >
+          AUTOAJUDA
+        </h1>
+
+        <div className="flex justify-center items-center py-6 sm:py-8 md:py-10 px-4">
+          <section
+            className="
+              w-full
+              max-w-7xl
+              h-64
+              sm:h-72
+              flex
+              flex-row
+              gap-4
+              sm:gap-6
+              md:gap-10
+              py-2
+              px-2
+              rounded-xl
+              bg-gradient-to-t
+              from-slate-200
+              to-slate-300
+              overflow-x-auto
+              overflow-y-hidden
+              scrollbar-thin
+            "
+          >
+            {selfHelpBooks.slice(0, 4).map((book) => (
+              <article
+                key={book.id}
+                className="
+                  h-full
+                  w-40
+                  sm:w-48
+                  md:w-56
+                  flex-shrink-0
+                  rounded-xl
+                  overflow-hidden
+                  relative
+                  shadow-xl
+                  shadow-indigo-300
+                  hover:scale-105
+                  duration-200
+                  cursor-pointer
+                  group
+                  bg-white
+                "
+                onClick={() => handleBookClick(book.id)}
+              >
+                {book.imagem && (
+                  <img
+                    src={`${apiUrl}/uploads/${book.imagem}`}
+                    alt={book.titulo}
+                    className="w-full h-full object-contain scale-90"
+                  />
+                )}
+
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    bg-black/70
+                    opacity-0
+                    group-hover:opacity-100
+                    transition-opacity
+                    duration-200
+                    flex
+                    flex-col
+                    justify-end
+                    p-3
+                    sm:p-4
+                    md:p-5
+                    text-white
+                  "
+                >
+                  <h2 className="font-bold text-sm sm:text-base md:text-lg mb-2">
+                    {book.titulo}
+                  </h2>
+
+                  <p className="text-xs sm:text-sm mb-1">
+                    <span className="font-semibold">Autor:</span>{" "}
+                    {book.autor}
+                  </p>
+
+                  <p className="text-xs sm:text-sm">
+                    <span className="font-semibold">Editora:</span>{" "}
+                    {book.editora}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </section>
+        </div>
+
+        <div className="flex justify-center mb-8 sm:mb-10 px-4">
+          <button
+            onClick={handleSelfHelpBooks}
+            className="
+              px-5
+              sm:px-6
+              py-2
+              rounded-lg
+              bg-indigo-600
+              text-white
+              font-semibold
+              hover:bg-indigo-700
+              transition
+              text-sm
+              sm:text-base
+            "
+          >
+            Ver livros de autoajuda
+          </button>
+        </div>
+
+      </div>
 
       <Footer />
     </div>
