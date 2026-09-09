@@ -82,6 +82,7 @@ const itensPedido: ItemPedido[] = [];
 // Obs: a Home.tsx do front-end monta seções específicas para as
 // categorias "Esportivo", "Mistério" e "Infantil" — por isso o seed
 // abaixo inclui pelo menos alguns livros dessas categorias.
+//node -e "const bcrypt=require('bcrypt'); console.log(bcrypt.hashSync('123456', 10))" para gerar um novo hash bcrypt
 function seed() {
   editoras.push({
     id: nextIds.editora++,
